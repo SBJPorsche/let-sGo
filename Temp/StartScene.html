@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name='viewport' content='width=device-width,user-scalable=no'>
+    <meta name='apple-mobile-web-app-status-bar-style' content='black-translucent'>
+    <meta name='apple-mobile-web-app-capable' content='yes'>
+    <meta name='apple-mobile-web-app-title' content='QICI Engine'>
+    <link rel='apple-touch-icon' href='../../build/imgs/qici.png'>
+    <link rel='apple-touch-startup-image' href='../../build/imgs/qici.png'>
+
+    <link rel="shortcut icon" href="../../lib/imgs/qici.ico" />
+    <title>编辑器启动场景的脚本</title>
+    <style>
+        html, body {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="/Assets/css/style.css"/>
+
+    <script>
+
+        var qici = {};
+        qici.config = {
+            // 项目名，默认为：Game
+            projectName: 'Default',
+        
+            // 游戏名字，默认为：未命名
+            gameName: 'DefaultGame',
+        
+            // 开发者名字，默认为：DefaultCompany
+            companyName: 'DefaultCompany',
+        
+            // 项目唯一标识，默认为：com.DefaultCompany.Game
+            bundleIdentifier: 'com.DefaultCompany.Default',
+        
+            // 游戏示例，将作为全局变量访问，默认为：game
+            gameInstance: 'qc_game',
+            
+            // 游戏背景色
+            backgroundColor: 4282861383,
+        
+            // 后台运行
+            runInBackground: true,
+        
+            // 抗锯齿
+            antialias: true,
+
+            // 渲染方式
+            renderer: 'Auto',
+        
+            // 背景透明
+            transparent: false,
+        
+            // 游戏切屏时的进度界面
+            loadingPrefab: '',
+
+            // 开发模式
+            developerMode: true,
+        
+            // 所有的游戏场景
+            scene: {
+                editor : 'Temp/scene_editor.bin'
+                ,
+            "gameScene" : "Assets/state/gameScene.bin"
+            },
+            
+            // 入口场景
+            entryScene : 'editor',
+            loading: {
+                loadingInterval: 200,
+                brightingInterval: 10,
+                blinkingCount: 5,
+                blinkingInterval: 70,
+                fadingInterval: 1
+            }
+        };
+
+        qici.config.developerMode = true;
+        qici.config.editor = true;
+        qici.config.frameRate = 30;
+
+   		_pluginVariables_={}
+
+        qici.scripts = [
+            './Assets/meta/globalUrlMap.js?20151212072946_2',
+            '../lib/phaser.js',
+            '../lib/webfontloader.js',
+            '../lib/qc-core-debug.js',
+            // External scripts for plugins
+
+            // Plugins scripts    
+			['../Plugins/com.qici.arcadePhysics/Script/World.js?20151212053708', 'com.qici.arcadePhysics'],
+			['../Plugins/com.qici.arcadePhysics/Script/Body.js?20151212053708', 'com.qici.arcadePhysics'],
+			['../Plugins/com.qici.arcadePhysics/Script/RigidBody.js?20151212053708', 'com.qici.arcadePhysics'],
+
+            // User scripts    
+			'../Scripts/letsGo.js?20151212054250',
+			'../Scripts/logic/playerJs.js?20151212053708',
+			'../Scripts/logic/gameJs.js?20151212072946',
+			'../Scripts/enemyJS/mathBtnClickJs.js?20151212053708',
+			'../Scripts/enemyJS/mathbordJs.js?20151212053708',
+			'../Scripts/enemyJS/keylockJs.js?20151212053708',
+			'../Scripts/enemyJS/keyJs.js?20151212053708',
+			'../Scripts/enemyJS/finddifSubJs.js?20151212053708',
+			'../Scripts/enemyJS/finddiffJs.js?20151212053708',
+			'../Scripts/enemyJS/fenceJs.js?20151212053708',
+			'../Scripts/enemyJS/dbarrowJs.js?20151212054645',
+			'../Scripts/enemyJS/dbarrowDragJs.js?20151212064354',
+			'../Scripts/enemyJS/cardJs.js?20151212072710',
+			'../Scripts/enemyJS/cardbaseJs.js?20151212072844',
+			'../Scripts/enemyJS/birdFlyJs.js?20151212053708',
+			'../Scripts/enemyJS/arrowRJs.js?20151212053708',
+			'../Scripts/enemyJS/arrowLJs.js?20151212053708',
+
+        ];
+        
+		// Asset count that need preload in boot
+		qici.loadingAssetCount = 6;
+    </script>
+</head>
+
+<body onload="qici.init();">
+    <div id="gameDiv" style="position:absolute;width:100%;height:100%"></div>
+
+    <script src='../../lib/qc-loading-debug.js'></script>
+    <script src='../../lib/qc-loading-editor.js'></script>
+</body>
+
+</html>

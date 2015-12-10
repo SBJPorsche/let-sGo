@@ -1,0 +1,6 @@
+{
+  "scene": {
+    "gameScene": "Assets/state/gameScene.bin"
+  },
+  "entryScene": "gameScene"
+}
