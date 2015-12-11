@@ -51,7 +51,7 @@ dbarrowDragJs.prototype.onDrag = function(e) {
                         self.arrowL.x = -180;
                         self.arrowR.x = 180;
                         G.bgRun = true;
-                        self.parent.y = -50000;
+                        self.parent.y = -1000;
                     }
                 });
             }
@@ -72,7 +72,7 @@ dbarrowDragJs.prototype.onDrag = function(e) {
                         self.arrowL.x = -180;
                         self.arrowR.x = 180;                   
                         G.bgRun = true;
-                        self.parent.y = -50000;
+                        self.parent.y = -1000;
                     }
                 });
             }

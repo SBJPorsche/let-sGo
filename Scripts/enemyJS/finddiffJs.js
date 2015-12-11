@@ -36,9 +36,17 @@ finddifJs.prototype.awake = function() {
             self.randomFucn();
         }
     });
-//     e.addOnce(function(p1, p2) {
-//         console.log('2. Receive event:', p1, p2);
-//     });
+    
+    G.game.timer.loop(G.loopcd, function(){
+        var self = this;
+        var rigid = self.getScript('qc.arcade.RigidBody');
+        if(G.bgRun === true && self.gameObject.y > 0){
+             rigid.moves = true;
+             self.gameObject.y = self.gameObject.y - G.gamespeed;
+        }else{
+             rigid.moves = false;
+        }        
+	}, this); 
 };
 
 finddifJs.prototype.randomFucn = function() {
@@ -52,13 +60,13 @@ finddifJs.prototype.randomFucn = function() {
 
 finddifJs.prototype.update = function() {
 	var self = this;
-    var rigid = self.getScript('qc.arcade.RigidBody');
-    if(G.bgRun === true){
-         rigid.moves = true;
-         self.gameObject.y = self.gameObject.y - G.offset * G.game.time.deltaTime;
-    }else{
-         rigid.moves = false;
-    }
+//     var rigid = self.getScript('qc.arcade.RigidBody');
+//     if(G.bgRun === true && self.gameObject.y > 0){
+//          rigid.moves = true;
+//          self.gameObject.y = self.gameObject.y - G.offset*G.game.time.deltaTime;
+//     }else{
+//          rigid.moves = false;
+//     }
     
 };
 

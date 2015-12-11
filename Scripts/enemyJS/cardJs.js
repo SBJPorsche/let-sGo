@@ -18,7 +18,7 @@ cardJs.prototype.onClick = function() {
     var self = this;
     var frames = ['card_26.png','card_28.png','card_38.png'];
     if(self.parent.frame == this.gameObject.frame){
-        self.parent.y = -50000;
+        self.parent.y = -1000;
         self.parent.frame = frames[G.game.math.random(0,2)];
         G.bgRun = true;
     }else{

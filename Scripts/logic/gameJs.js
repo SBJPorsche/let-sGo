@@ -4,6 +4,7 @@ var gameJs = qc.defineBehaviour('qc.engine.gameJs', qc.Behaviour, function() {
     //this.runInEditor = true;
     var self = this;
     self.timerCreateEnemy = null;
+    self.timerLoopbg = null;
     self.bg1 = null;
     self.bg2 = null;
     self.player = null;
@@ -36,55 +37,73 @@ var gameJs = qc.defineBehaviour('qc.engine.gameJs', qc.Behaviour, function() {
 // Awake is called when the script instance is being loaded.
 gameJs.prototype.awake = function() {
     var self = this;
-    
 	this.timerCreateEnemy = G.game.timer.loop(3000, this.createEnemy, this); 
+    G.game.timer.loop(8, function(){
+        var self = this;
+        if ( G.bgRun === true) {
+            G.distance ++ ;
+            self.bg1.y = self.bg1.y - G.gamespeed;
+            if (self.bg1.y < -self.bg1.height) {
+                self.bg1.y = self.bg1.height-10;
+            }
+            self.bg2.y = self.bg2.y - G.gamespeed;
+            if (self.bg2.y < -self.bg2.height) {
+                self.bg2.y = self.bg2.height-10;
+            }
+        }          
+    }, this); 
 };
 
 // Update is called every frame, if the behaviour is enabled.
 gameJs.prototype.update = function() {
     var self = this;
-	if ( G.bgRun === true) {
-        G.distance ++ ;
-        self.bg1.y = self.bg1.y - G.offset * G.game.time.deltaTime;
-        if (self.bg1.y < -self.bg1.height) {
-            self.bg1.y = self.bg1.height-10;
-        }
-        self.bg2.y = self.bg2.y - G.offset * G.game.time.deltaTime;
-        if (self.bg2.y < -self.bg2.height) {
-            self.bg2.y = self.bg2.height-10;
-        }
-    }    
+// 	if ( G.bgRun === true) {
+//         G.distance ++ ;
+//         self.bg1.y = self.bg1.y - G.offset*G.game.time.deltaTime*G.game.time.frameRate;
+//         if (self.bg1.y < -self.bg1.height) {
+//             self.bg1.y = self.bg1.height-10;
+//         }
+//         self.bg2.y = self.bg2.y - G.offset*G.game.time.deltaTime*G.game.time.frameRate;
+//         if (self.bg2.y < -self.bg2.height) {
+//             self.bg2.y = self.bg2.height-10;
+//         }
+//     }  
 };
 
 gameJs.prototype.createEnemy = function() {
     var self = this;
     var id = G.game.math.random(0, 8);
-//     id = 5;
+//     id = 15;
     if(G.bgRun === true){      
         switch (id)
         {
         case 0:
             if(self.fence.y < 0){
+                self.fence.getScript('qc.arcade.RigidBody').addCollide(self.player);
                 self.fence.y = G.game.height + 1500;
             }
             break;
         case 1:
             if(self.bird.y < 0){
+                self.bird.getScript('qc.arcade.RigidBody').addCollide(self.player);
                 self.bird.y = G.game.height + 1500;
             }    
             break;
         case 2:
             if(self.arrowL.y < 0){
+                self.arrowL.getScript('qc.arcade.RigidBody').addCollide(self.player);
                 self.arrowL.y = G.game.height + 1500;
             }                
             break;
         case 3:
             if(self.arrowR.y < 0){
+                self.arrowR.getScript('qc.arcade.RigidBody').addCollide(self.player);
                 self.arrowR.y = G.game.height + 1500;
             }                
             break;
         case 4:
             if(self.keylock.y < 0){
+                self.keylock.getScript('qc.arcade.RigidBody').addCollide(self.player);
                 self.keylock.y = G.game.height + 1500;
             }                
             break;
@@ -95,16 +114,19 @@ gameJs.prototype.createEnemy = function() {
             break;
         case 6:
             if(self.mathbord.y < 0){
+                self.mathbord.getScript('qc.arcade.RigidBody').addCollide(self.player);
                 self.mathbord.y = G.game.height + 1500;
             }                
             break;
         case 7:
             if(self.finddif.y < 0){
+                self.finddif.getScript('qc.arcade.RigidBody').addCollide(self.player);
                 self.finddif.y = G.game.height + 1500;
             }                
             break;  
         case 8:
             if(self.dbarrow.y < 0){
+                self.dbarrow.getScript('qc.arcade.RigidBody').addCollide(self.player);
                 self.dbarrow.y = G.game.height + 1500;
             }                
             break;                  

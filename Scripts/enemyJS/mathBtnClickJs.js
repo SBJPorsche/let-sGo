@@ -44,7 +44,7 @@ mathBtnClickJs.prototype.onClick = function() {
     G.game.log.trace('onClick:'+right);
     if((right === true && self.gameObject.name === 'yes') || (right === false && self.gameObject.name === 'no')){
 //         self.parent.visible = false;
-        self.parent.y = -50000;
+        self.parent.y = -1000;
         self.cal();
         G.bgRun = true;
     }else{

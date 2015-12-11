@@ -35,7 +35,7 @@ keyJs.prototype.onOverlap = function(o1, o2) {
     G.game.log.trace(self.parent.frame+self.gameObject.frame);
     if((self.parent.frame == 'suo.png' && self.gameObject.frame == 'key.png')||(self.parent.frame == 'suo1.png' && self.gameObject.frame == 'key1.png')){
         G.bgRun = true;
-        self.parent.y = -50000;
+        self.parent.y = -1000;
         self.touchdone = false;
     } 
 };

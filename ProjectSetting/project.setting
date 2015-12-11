@@ -1,14 +1,16 @@
 {
-  "projectName": "Default",
-  "gameName": "DefaultGame",
-  "companyName": "DefaultCompany",
-  "bundleIdentifier": "com.DefaultCompany.Default",
-  "gameInstance": "qc_game",
-  "backgroundColor": 4282861383,
+  "projectName": "letsGo",
+  "gameName": "letsGo",
+  "companyName": "kuka",
+  "bundleIdentifier": "com.kuka.letsGo",
+  "gameInstance": "game",
+  "backgroundColor": 4671303,
   "runInBackground": true,
   "antialias": true,
   "renderer": "Auto",
   "transparent": false,
   "developerMode": false,
-  "toolFlag": 12
+  "toolFlag": 12,
+  "version": "1",
+  "loading": ""
 }

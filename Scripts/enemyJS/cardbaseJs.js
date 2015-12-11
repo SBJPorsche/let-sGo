@@ -17,18 +17,29 @@ cardbaseJs.prototype.awake = function() {
     var frames = ['card_26.png','card_28.png','card_38.png'];
     var id = G.game.math.random(0, 2);
     self.gameObject.frame = frames[id];
+    
+    G.game.timer.loop(G.loopcd, function(){
+        var self = this;
+        var rigid = self.getScript('qc.arcade.RigidBody');
+        if(G.bgRun === true && self.gameObject.y > 0){
+             rigid.moves = true;
+             self.gameObject.y = self.gameObject.y - G.gamespeed;
+        }else{
+             rigid.moves = false;
+        }        
+	}, this);     
 };
 
 // Update is called every frame, if the behaviour is enabled.
 cardbaseJs.prototype.update = function() {
 	var self = this;
-    var rigid = self.getScript('qc.arcade.RigidBody');
-    if(G.bgRun === true){
-         rigid.moves = true;
-         self.gameObject.y = self.gameObject.y - G.offset * G.game.time.deltaTime;
-    }else{
-         rigid.moves = false;
-    }
+//     var rigid = self.getScript('qc.arcade.RigidBody');
+//     if(G.bgRun === true && self.gameObject.y > 0){
+//          rigid.moves = true;
+//          self.gameObject.y = self.gameObject.y - G.offset*G.game.time.deltaTime;
+//     }else{
+//          rigid.moves = false;
+//     }
 
     var frames = ['card_26.png','card_28.png','card_38.png'];
     self.idx++;

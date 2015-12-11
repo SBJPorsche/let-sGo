@@ -5,17 +5,27 @@ var arrowLJs = qc.defineBehaviour('qc.engine.arrowLJs', qc.Behaviour, function()
 });
 
 arrowLJs.prototype.awake = function() {
+    G.game.timer.loop(G.loopcd, function(){
+        var self = this;
+        var rigid = self.getScript('qc.arcade.RigidBody');
+        if(G.bgRun === true && self.gameObject.y > 0){
+             rigid.moves = true;
+             self.gameObject.y = self.gameObject.y - G.gamespeed;
+        }else{
+             rigid.moves = false;
+        }        
+	}, this); 
 };
 
 arrowLJs.prototype.update = function() {
-	var self = this;
-    var rigid = self.getScript('qc.arcade.RigidBody');
-    if(G.bgRun === true){
-         rigid.moves = true;
-         self.gameObject.y = self.gameObject.y - G.offset * G.game.time.deltaTime;
-    }else{
-         rigid.moves = false;
-    }
+// 	var self = this;
+//     var rigid = self.getScript('qc.arcade.RigidBody');
+//     if(G.bgRun === true && self.gameObject.y > 0){
+//          rigid.moves = true;
+//          self.gameObject.y = self.gameObject.y - G.offset*G.game.time.deltaTime;
+//     }else{
+//          rigid.moves = false;
+//     }
 };
 
 arrowLJs.prototype.onCollide = function(o1,o2) {
@@ -43,16 +53,16 @@ arrowLJs.prototype.onDrag = function(e) {
     p = o.parent.toLocal(p);
     if(p.x > o.x){
         o.x = p.x;
-        if(p.x - self.oldPos.x > 200){
+        if(p.x - self.oldPos.x > 300){
             tp = self.getScript('qc.TweenPosition');
             tp.from.x = o.x;
             tp.play();
-            G.bgRun = true;
             self.touchdone = true;
             tp.onFinished.add(function(){
-                self.gameObject.y = -50000;
-                self.gameObject.x = self.oldPos.x;
                 self.touchdone = false;
+                self.gameObject.y = -1000;
+                self.gameObject.x = self.oldPos.x;
+                G.bgRun = true;
             });            
         }
     }

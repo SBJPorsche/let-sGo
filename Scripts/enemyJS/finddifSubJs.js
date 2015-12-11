@@ -21,7 +21,7 @@ var finddifSubJs = qc.defineBehaviour('qc.engine.finddifSubJs', qc.Behaviour, fu
 finddifSubJs.prototype.onClick = function() {
 	var self = this;
     if(self.gameObject.frame === 'grass2.png'){
-        self.parent.y = -50000;
+        self.parent.y = -1000;
         // 派发2次事件
         G.signal.dispatch('resetdiff', 'ok');
         G.bgRun = true;

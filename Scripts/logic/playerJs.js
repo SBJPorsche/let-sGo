@@ -36,14 +36,14 @@ playerJs.prototype.update = function() {
     }
     
     // 手机感应
-//     if (gammadirection>20 || gammadirection<-20) {
-//         self.gameObject.rotation = gammadirection ;
-//     }else{
-//         self.gameObject.rotation = 0;
-//     }
-//     if (betadirection>60) {
-//         self.gameObject.rotation = 180;
-//     }
-//     G.playerRotation = Math.ceil((self.gameObject.rotation+360)%360);
+    if (gammadirection>20 || gammadirection<-20) {
+        self.gameObject.rotation = gammadirection ;
+    }else{
+        self.gameObject.rotation = 0;
+    }
+    if (betadirection>60) {
+        self.gameObject.rotation = 180;
+    }
+    G.playerRotation = Math.ceil((self.gameObject.rotation+360)%360);
 };
 
