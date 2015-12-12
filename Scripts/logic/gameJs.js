@@ -17,6 +17,7 @@ var gameJs = qc.defineBehaviour('qc.engine.gameJs', qc.Behaviour, function() {
     self.mathbord = null;
     self.finddif = null;
     self.dbarrow = null;
+    self.firebase = null;
 }, {
     // fields need to serialize
     bg1: qc.Serializer.NODE,
@@ -30,7 +31,8 @@ var gameJs = qc.defineBehaviour('qc.engine.gameJs', qc.Behaviour, function() {
     cardbase: qc.Serializer.NODE,
     mathbord: qc.Serializer.NODE,
     finddif: qc.Serializer.NODE,
-    dbarrow: qc.Serializer.NODE
+    dbarrow: qc.Serializer.NODE,
+    firebase: qc.Serializer.NODE
 });
 
 
@@ -38,7 +40,7 @@ var gameJs = qc.defineBehaviour('qc.engine.gameJs', qc.Behaviour, function() {
 gameJs.prototype.awake = function() {
     var self = this;
 	this.timerCreateEnemy = G.game.timer.loop(3000, this.createEnemy, this); 
-    G.game.timer.loop(8, function(){
+    G.game.timer.loop(G.loopcd, function(){
         var self = this;
         if ( G.bgRun === true) {
             G.distance ++ ;
@@ -72,8 +74,8 @@ gameJs.prototype.update = function() {
 
 gameJs.prototype.createEnemy = function() {
     var self = this;
-    var id = G.game.math.random(0, 8);
-//     id = 15;
+    var id = G.game.math.random(0, 9);
+//     id = 8;
     if(G.bgRun === true){      
         switch (id)
         {
@@ -128,6 +130,12 @@ gameJs.prototype.createEnemy = function() {
             if(self.dbarrow.y < 0){
                 self.dbarrow.getScript('qc.arcade.RigidBody').addCollide(self.player);
                 self.dbarrow.y = G.game.height + 1500;
+            }                
+            break;  
+        case 9:
+            if(self.firebase.y < 0){
+                self.firebase.getScript('qc.arcade.RigidBody').addCollide(self.player);
+                self.firebase.y = G.game.height + 1500;
             }                
             break;                  
         }
