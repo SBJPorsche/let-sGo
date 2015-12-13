@@ -36,17 +36,6 @@ finddifJs.prototype.awake = function() {
             self.randomFucn();
         }
     });
-    
-    G.game.timer.loop(G.loopcd, function(){
-        var self = this;
-        var rigid = self.getScript('qc.arcade.RigidBody');
-        if(G.bgRun === true && self.gameObject.y > 0){
-             rigid.moves = true;
-             self.gameObject.y = self.gameObject.y - G.gamespeed;
-        }else{
-             rigid.moves = false;
-        }        
-	}, this); 
 };
 
 finddifJs.prototype.randomFucn = function() {
@@ -59,14 +48,6 @@ finddifJs.prototype.randomFucn = function() {
 };
 
 finddifJs.prototype.update = function() {
-	var self = this;
-//     var rigid = self.getScript('qc.arcade.RigidBody');
-//     if(G.bgRun === true && self.gameObject.y > 0){
-//          rigid.moves = true;
-//          self.gameObject.y = self.gameObject.y - G.offset*G.game.time.deltaTime;
-//     }else{
-//          rigid.moves = false;
-//     }
     
 };
 

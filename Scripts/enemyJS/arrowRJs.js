@@ -4,28 +4,10 @@ var arrowRJs = qc.defineBehaviour('qc.engine.arrowRJs', qc.Behaviour, function()
 }, {
 });
 
-arrowRJs.prototype.awake = function() {
-    G.game.timer.loop(G.loopcd, function(){
-        var self = this;
-        var rigid = self.getScript('qc.arcade.RigidBody');
-        if(G.bgRun === true && self.gameObject.y > 0){
-             rigid.moves = true;
-             self.gameObject.y = self.gameObject.y - G.gamespeed;
-        }else{
-             rigid.moves = false;
-        }        
-	}, this); 
+arrowRJs.prototype.awake = function() { 
 };
 
 arrowRJs.prototype.update = function() {
-// 	var self = this;
-//     var rigid = self.getScript('qc.arcade.RigidBody');
-//     if(G.bgRun === true && self.gameObject.y > 0){
-//          rigid.moves = true;
-//          self.gameObject.y = self.gameObject.y - G.offset*G.game.time.deltaTime;
-//     }else{
-//          rigid.moves = false;
-//     }
 };
 
 arrowRJs.prototype.onCollide = function(o1,o2) {

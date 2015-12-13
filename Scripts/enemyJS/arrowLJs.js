@@ -5,27 +5,9 @@ var arrowLJs = qc.defineBehaviour('qc.engine.arrowLJs', qc.Behaviour, function()
 });
 
 arrowLJs.prototype.awake = function() {
-    G.game.timer.loop(G.loopcd, function(){
-        var self = this;
-        var rigid = self.getScript('qc.arcade.RigidBody');
-        if(G.bgRun === true && self.gameObject.y > 0){
-             rigid.moves = true;
-             self.gameObject.y = self.gameObject.y - G.gamespeed;
-        }else{
-             rigid.moves = false;
-        }        
-	}, this); 
 };
 
 arrowLJs.prototype.update = function() {
-// 	var self = this;
-//     var rigid = self.getScript('qc.arcade.RigidBody');
-//     if(G.bgRun === true && self.gameObject.y > 0){
-//          rigid.moves = true;
-//          self.gameObject.y = self.gameObject.y - G.offset*G.game.time.deltaTime;
-//     }else{
-//          rigid.moves = false;
-//     }
 };
 
 arrowLJs.prototype.onCollide = function(o1,o2) {

@@ -6,7 +6,7 @@ window.G = qc.letsGo.G = {
 };
 G.bgRun = true;
 G.distance = 0;
-G.offset = 0.005;
+G.offset = 0.3;
 G.playerDead = false;
 G.playerRotation = 0;
 G.gamespeed = 5;

@@ -562,7 +562,7 @@
                       ],
                       "frame": [
                         7,
-                        "smoke5.png"
+                        "smoke8.png"
                       ],
                       "defaultAnimation": [
                         8,
@@ -649,7 +649,7 @@
                       ],
                       "frame": [
                         7,
-                        "smoke5.png"
+                        "smoke8.png"
                       ],
                       "defaultAnimation": [
                         8,
@@ -1190,9 +1190,9 @@
                 "position": [
                   0.5,
                   0.5,
-                  48.95999999999782,
+                  -12.240000000001146,
                   -1000,
-                  368.9599999999978,
+                  307.75999999999885,
                   -520,
                   156,
                   156,
@@ -1233,7 +1233,7 @@
                 ],
                 "frame": [
                   7,
-                  "bird3.png"
+                  "bird6.png"
                 ],
                 "defaultAnimation": [
                   8,
@@ -6716,7 +6716,7 @@
                 ],
                 "text": [
                   7,
-                  "FPS: 59.9\nDraw Calls: 17\nTotal: 2.2 ms\nLogic: 0.7 ms\nRender: 1.4 ms\nPreUpdate: 0.3 ms\nUpdate: 0.3 ms\nPostUpdate: 0.1 ms\nTransformCalc: undefined"
+                  "FPS: 57.9\nDraw Calls: 17\nTotal: 2.5 ms\nLogic: 0.5 ms\nRender: 1.9 ms\nPreUpdate: 0.3 ms\nUpdate: 0.2 ms\nPostUpdate: 0.1 ms\nTransformCalc: undefined"
                 ],
                 "lineSpacing": [
                   3,
@@ -7020,7 +7020,7 @@
                       ],
                       "frame": [
                         7,
-                        "Fire5.png"
+                        "Fire8.png"
                       ],
                       "defaultAnimation": [
                         8,
@@ -7639,9 +7639,9 @@
                   0.5,
                   0.5,
                   0,
-                  640,
+                  -1000,
                   320,
-                  1120,
+                  -520,
                   380,
                   94,
                   0,
